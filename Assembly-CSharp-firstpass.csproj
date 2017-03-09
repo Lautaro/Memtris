@@ -46,17 +46,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\LeanTween\LTDescr.cs" />
-     <Compile Include="Assets\Plugins\LeanTween\LTDescrOptional.cs" />
-     <Compile Include="Assets\Plugins\LeanTween\LeanAudio.cs" />
-     <Compile Include="Assets\Plugins\LeanTween\LeanTest.cs" />
-     <Compile Include="Assets\Plugins\LeanTween\LeanTween.cs" />
-     <None Include="Assets\Extras\LeanTweenExtras\Examples\Archived\2dUnlitWithFade.shader" />
-     <None Include="Assets\Extras\LeanTweenExtras\ReadMe.txt" />
+     <Compile Include="Assets\Plugins\DOTween\Examples\Basics.cs" />
+     <Compile Include="Assets\Plugins\DOTween\Examples\Sequences.cs" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
      <None Include="Assets\Extras\fonts\ISL_Jupiter.txt" />
      <None Include="Assets\Extras\fonts\jupiter_readme.txt" />
      <None Include="Assets\Extras\fonts\Sanitrixie.txt" />
-     <None Include="Assets\Extras\LeanTweenExtras\License.txt" />
      <None Include="Assets\Extras\fonts\Sanitrixie SIL OFL Font License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Installed Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -75,6 +70,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/Installed Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Unity Projects/Memtris/Assets/Plugins/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

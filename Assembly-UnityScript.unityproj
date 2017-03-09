@@ -55,6 +55,7 @@
      <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralSimpleUiJS.js" />
      <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathLocalCurveJS.js" />
      <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\TestingAllJS.js" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
      <None Include="Assets\Extras\LeanTweenExtras\Examples\Archived\2dUnlitWithFade.shader" />
      <None Include="Assets\Extras\LeanTweenExtras\ReadMe.txt" />
      <None Include="Assets\Extras\fonts\ISL_Jupiter.txt" />
@@ -79,6 +80,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/Installed Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Unity Projects/Memtris/Assets/Plugins/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

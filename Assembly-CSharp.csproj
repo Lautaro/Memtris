@@ -46,27 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Archived\OldGUIExamplesCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Archived\TestingPunch.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Archived\TestingRigidbodyCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralAdvancedTechniques.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralBasicCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralBasics2dCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralCameraShake.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralEasingTypes.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralEventsListenersCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralSimpleUiCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\GeneralUISpaceCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\LogoCinematic.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathBezier.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSpline.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSpline2d.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSplineEndlessCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSplinePerformanceCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSplineTrackCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\PathSplines.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\TestingAllCS.cs" />
-     <Compile Include="Assets\Extras\LeanTweenExtras\Examples\Scripts\TestingUnitTests.cs" />
      <Compile Include="Assets\Scripts\Card Game\Card.cs" />
      <Compile Include="Assets\Scripts\Card Game\CardGrid.cs" />
      <Compile Include="Assets\Scripts\Card Game\CardGui.cs" />
@@ -75,16 +54,15 @@
      <Compile Include="Assets\Scripts\Card Game\CardScene.cs" />
      <Compile Include="Assets\Scripts\Card Game\Extensions.cs" />
      <Compile Include="Assets\Scripts\Card Game\Tools.cs" />
+     <Compile Include="Assets\Scripts\GameObjectBase.cs" />
      <Compile Include="Assets\Scripts\Ico.cs" />
      <Compile Include="Assets\Scripts\MainGame.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MainMenuScene.cs" />
      <Compile Include="Assets\Scripts\SFXMan.cs" />
-     <None Include="Assets\Extras\LeanTweenExtras\Examples\Archived\2dUnlitWithFade.shader" />
-     <None Include="Assets\Extras\LeanTweenExtras\ReadMe.txt" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
      <None Include="Assets\Extras\fonts\ISL_Jupiter.txt" />
      <None Include="Assets\Extras\fonts\jupiter_readme.txt" />
      <None Include="Assets\Extras\fonts\Sanitrixie.txt" />
-     <None Include="Assets\Extras\LeanTweenExtras\License.txt" />
      <None Include="Assets\Extras\fonts\Sanitrixie SIL OFL Font License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Installed Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -103,6 +81,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/Installed Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Unity Projects/Memtris/Assets/Plugins/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
