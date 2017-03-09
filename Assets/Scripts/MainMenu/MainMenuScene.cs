@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MainMenuScene : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class MainMenuScene : MonoBehaviour {
 	public GameObject InstructionsPanel;
 	public Slider SfxVolumeSlider;
 	public Slider MusicVolumeSlider;
+	public GameObject Logotype;
 	public MainMenuSceneState State  { get { return state; }  }
 
 
@@ -22,6 +24,22 @@ public class MainMenuScene : MonoBehaviour {
 
 	void Awake() {
 		state = MainMenuSceneState.Main;
+
+		// yoyo bounce x scale
+		Logotype.transform.DOScale (new Vector3 (1.3f, 1, 1), 12f)
+			.SetEase (Ease.InOutBounce)
+			.SetLoops(-1, LoopType.Yoyo);
+
+		// yoyo bounce y scale
+		Logotype.transform.DOScale (new Vector3 (1, 1.8f, 1), 5f)
+			.SetEase (Ease.InOutBounce)
+			.SetLoops(-1, LoopType.Yoyo);
+//
+//		// yoyo bounce x rotatio
+//		Logotype.transform.DORotate (new Vector3 (1, 1.2f, 1), 7f)
+//			.SetEase (Ease.InOutExpo)
+//			.SetLoops(-1, LoopType.Yoyo);
+
 	}
 
 	void Start () {
