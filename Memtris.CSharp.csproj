@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{48BEEE68-4C24-90E5-0E41-59D5A325CD72}</ProjectGuid>
+    <ProjectGuid>{3C3F1A8F-5EBE-136D-327F-DFB22DD645E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -73,19 +73,30 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MainMenuScene.cs" />
+    <ProjectReference Include="memtris.CSharp.Plugins.csproj">
+      <Project>{099334FC-6B49-8976-398A-9B71DBE6F85E}</Project>
+      <Name>memtris.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\Card Game\Card.cs" />
     <Compile Include="Assets\Scripts\Card Game\CardGrid.cs" />
-    <Compile Include="Assets\Scripts\Card Game\CardGui.cs" />
     <Compile Include="Assets\Scripts\Card Game\CardMan.cs" />
     <Compile Include="Assets\Scripts\Card Game\CardPickup.cs" />
     <Compile Include="Assets\Scripts\Card Game\CardScene.cs" />
+    <Compile Include="Assets\Scripts\Card Game\CardSceneGui.cs" />
     <Compile Include="Assets\Scripts\Card Game\Extensions.cs" />
     <Compile Include="Assets\Scripts\Card Game\Tools.cs" />
+    <Compile Include="Assets\Scripts\GameObjectBase.cs" />
     <Compile Include="Assets\Scripts\Ico.cs" />
     <Compile Include="Assets\Scripts\MainGame.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\StartMenu.cs" />
+    <Compile Include="Assets\Scripts\MessageDisplay.cs" />
     <Compile Include="Assets\Scripts\SFXMan.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +104,9 @@
     <None Include="Assets\Extras\fonts\Sanitrixie SIL OFL Font License.txt" />
     <None Include="Assets\Extras\fonts\Sanitrixie.txt" />
     <None Include="Assets\Extras\fonts\jupiter_readme.txt" />
+    <None Include="Assets\Plugins\DOTween\DOTween.XML" />
+    <None Include="Assets\Plugins\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\Plugins\DOTween\readme.txt" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

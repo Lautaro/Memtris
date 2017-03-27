@@ -7,18 +7,17 @@ public class CardMan : MonoBehaviour
 {
 
 
-	#region
-		public static CardMan Me;
-	#endregion
+	#region static memebers
 
+		public static CardMan Me;
 		public static List<Texture> AllTextures = new List<Texture> ();
-		public Card SelectedCard;
-		
 		public static bool canCardBeFlipped = true;
 		public static int cardMargin = 1; //meters
 		public static int cardStartingZ = 0;
+	#endregion
+
 		bool unselectCardsNextClick = false;
-		
+		public Card SelectedCard;
 
 		//Wave 
 		public static float cardStartingX = 60;
@@ -107,22 +106,22 @@ public class CardMan : MonoBehaviour
 										SelectedCard.RemoveCardCardAfterDelay ();
 										cardClicked.RemoveCardCardAfterDelay ();
 										SelectedCard = null;
-										CardGui.Me.Score = 100;
+										CardSceneGui.Me.Score = 100;
 										CardScene.GravityStrength -= 0.3f; //Slow speed
-										CardGui.Message ("Speed -30", Color.yellow);
+										CardSceneGui.DisplayGuiMessage ("Speed -30", Color.yellow);
 
 																								
 										// REALIGN CARDS
 										yield return StartCoroutine (RealignCards_cr ());
 			
 										//Check For Game Win
-										if (Card.Cards.Count < 1 && CardScene.cardGameManager.gameState == CardScene.GameState.GameOn) {
-												StartCoroutine (CardScene.cardGameManager.GameWon_cr ());
+										if (Card.Cards.Count < 1 && CardScene.cardScene.gameState == CardScene.GameState.GameOn) {
+												StartCoroutine (CardScene.cardScene.GameWon_cr ());
 										}
 			
 								} else {
 										SFXMan.sfx_Error.Play ();
-										CardGui.Message ("Speed +10", Color.red);
+										CardSceneGui.DisplayGuiMessage ("Speed +10", Color.red);
 										CardScene.GravityStrength += 0.1f;
 										unselectCardsNextClick = true;
 								}

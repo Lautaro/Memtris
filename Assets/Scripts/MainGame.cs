@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MainGame : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class MainGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         InstructionsPanel = transform.FindChild("Instructions").gameObject;
         OptionsPanel = transform.FindChild("Options").gameObject;
 
@@ -35,6 +37,8 @@ public class MainGame : MonoBehaviour
         sfxVolumeSlider = transform.Find("Options/SfxVolume").GetComponent<Slider>();
 
     }
+
+   
 
     public void StartGame()
     {

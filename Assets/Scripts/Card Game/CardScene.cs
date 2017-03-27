@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
+/// <summary>
+/// Manages the card game scene and provides the fundamental game logic.
+/// </summary>
 public class CardScene : MonoBehaviour
 {
-
 		public static CardMan cardMan;
 		public static Tools tools;
-		public static CardScene cardGameManager;
+		public static CardScene cardScene;
 		//public static SFXMan sfxMan;
-		public static CardGui guiMan;
+		public static CardSceneGui guiMan;
 		static float gravityStrength;
 		public GameState gameState;
 		public static bool HasPickUp = false;
@@ -30,7 +34,7 @@ public class CardScene : MonoBehaviour
 						}
 
 						Physics.gravity = new Vector3 (-gravityStrength, 0, 0);
-						CardGui.Me.SetSpeedLabel (value);
+						CardSceneGui.Me.SetSpeedLabel (value);
 				}
 		}
 
@@ -39,35 +43,31 @@ public class CardScene : MonoBehaviour
 				get { return energyBalls;}
 				set {
 						if (value > energyBalls) {
-								CardGui.Message ("ENERGY BALL!", Color.cyan);
+								CardSceneGui.DisplayGuiMessage ("ENERGY BALL!", Color.cyan);
 						}
 						energyBalls = value;
 
-						CardGui.Me.SetEnergyBalls (value);
+						CardSceneGui.Me.DisplayEnergyBalls (value);
 				}
 		}
 
 		public static float gravityAcceleration;
 		public	static DangerState dangerState;
 		float gameOverRange = 15F; //X Position the card should be in to cause game over.
-
-		
-
-
-
+    
 		// Use this for initialization
 		void Start ()
 		{
-				cardGameManager = this;
+				cardScene = this;
 				gameState = GameState.StartingUp;
-				EnergyBalls = 1;
+				energyBalls = 1;
 
 				tools = Tools.Me;
 				if (tools == null) {
 						Debug.LogWarning ("Tools reference in GameManager is null");
 				}
 
-				guiMan = CardGui.Me;
+				guiMan = CardSceneGui.Me;
 				if (guiMan == null) {
 						Debug.LogWarning ("GuiMan reference in GameManager is null");
 				}
@@ -82,7 +82,7 @@ public class CardScene : MonoBehaviour
 	
 		}
 
-		IEnumerator InitiateWave_cr ()
+    IEnumerator InitiateWave_cr ()
 		{		
 
 
@@ -90,7 +90,7 @@ public class CardScene : MonoBehaviour
 				SFXMan.sfx_StartWave.Play ();
 				var wave = MainGame.Wave;
 				
-				CardGui.Message (string.Format ("Clear {1} cards!", wave, wave * (CardMan.cardPairsPerWave * 2)), Color.white);
+				CardSceneGui.DisplayGuiMessage (string.Format ("Clear {1} cards!", wave, wave * (CardMan.cardPairsPerWave * 2)), Color.white);
 
 				yield return new WaitForSeconds (3);			
 
@@ -107,9 +107,7 @@ public class CardScene : MonoBehaviour
 				gameState = GameState.GameOn;
 		
 		}
-	
-
-	
+		
 		// Update is called once per frame
 		void Update ()
 		{
@@ -146,7 +144,7 @@ public class CardScene : MonoBehaviour
 				var progress = timeLerping / startStopDuration;
 
 				//SLOW DOWN
-				CardGui.Message ("GRAVITY PAUSE!", Color.cyan);
+				CardSceneGui.DisplayGuiMessage ("GRAVITY PAUSE!", Color.cyan);
 				while (isSlowingDown && progress < startStopDuration) {
 						
 						GravityStrength = Mathf.Lerp (normalGravity, 0, progress);
@@ -162,7 +160,7 @@ public class CardScene : MonoBehaviour
 				yield return new WaitForSeconds (GravityPauseDuration);
 				
 				//RESUME SPEED
-				CardGui.Message ("HERE WE GO AGAIN!", Color.cyan);
+				CardSceneGui.DisplayGuiMessage ("HERE WE GO AGAIN!", Color.cyan);
 				while (!isSlowingDown && progress < startStopDuration) {
 				
 						GravityStrength = Mathf.Lerp (0, normalGravity, progress);
@@ -232,9 +230,7 @@ public class CardScene : MonoBehaviour
 				}
 				
 		}
-
-
-
+    
 		void FirstWarning ()
 		{
 				if (dangerState != DangerState.FirstWarning) {
@@ -265,11 +261,10 @@ public class CardScene : MonoBehaviour
 						CardMan.CardCascade ();
 						SFXMan.sfx_GameOver.Play ();
 						dangerState = DangerState.GameOver;
-						
-						
+
 						yield return new WaitForSeconds (3);
 						StartCoroutine (InitiateWave_cr ());
-						Application.LoadLevel ("MainMenu");
+                        SceneManager.LoadScene("MainMenu");
 
 				}
 
@@ -280,12 +275,13 @@ public class CardScene : MonoBehaviour
 		{
 				SFXMan.StopSong ();
 				SFXMan.sfx_CardWaveCleared.Play ();
-				CardGui.Message ("Wave cleared! ", Color.white);
+				CardSceneGui.DisplayGuiMessage ("Wave cleared! ", Color.white);
 				gameState = GameState.GameWon;
 				MainGame.Wave ++;
 				yield return new WaitForSeconds (4);
-				Application.LoadLevel ("PlatformScene");
-		}
+                StartCoroutine(InitiateWave_cr());
+
+    }
 
 		public enum DangerState
 		{
