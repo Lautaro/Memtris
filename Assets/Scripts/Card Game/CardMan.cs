@@ -121,7 +121,7 @@ public class CardMan : MonoBehaviour
 			
 								} else {
 										SFXMan.sfx_Error.Play ();
-										CardSceneGui.DisplayGuiMessage ("Speed +10", Color.red);
+										CardSceneGui.DisplayGuiMessage ("Speed +10", Color.white);
 										CardScene.GravityStrength += 0.1f;
 										unselectCardsNextClick = true;
 								}
