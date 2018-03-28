@@ -92,10 +92,10 @@ public class Card : MonoBehaviour
 				GetComponent<Rigidbody>().isKinematic = true;
 
 				id = nextId++;
-				cardSides = transform.FindChild ("CardSides");		
+				cardSides = transform.Find ("CardSides");		
 				starBurst = GetComponent<ParticleSystem> ();
-				front = cardSides.FindChild ("Front").gameObject;
-				back = cardSides.FindChild ("Back").gameObject;
+				front = cardSides.Find ("Front").gameObject;
+				back = cardSides.Find ("Back").gameObject;
 				cardSides.rotation = Quaternion.Euler (0, 180, 0);
 				CurrentSide = FlipsSide.Back;	
 				cardDimensions = new Vector2 (Box ().width, Box ().height);

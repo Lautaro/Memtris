@@ -12,13 +12,15 @@ public class StartMenu : MonoBehaviour {
 
 	}
 
-	private MainMenuSceneState state;
+	
 	public GameObject OptionsPanel;
 	public GameObject InstructionsPanel;
 	public Slider SfxVolumeSlider;
 	public Slider MusicVolumeSlider;
 	public GameObject Logotype;
-	public MainMenuSceneState State  { get { return state; }  }
+
+    private MainMenuSceneState state;
+    public MainMenuSceneState State  { get { return state; }  }
 
 
 

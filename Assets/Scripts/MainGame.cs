@@ -23,8 +23,8 @@ public class MainGame : MonoBehaviour
     void Start()
     {
 
-        InstructionsPanel = transform.FindChild("Instructions").gameObject;
-        OptionsPanel = transform.FindChild("Options").gameObject;
+        InstructionsPanel = transform.Find("Instructions").gameObject;
+        OptionsPanel = transform.Find("Options").gameObject;
 
 
         state = MainGameState.StartMenu;
